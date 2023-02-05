@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBConnectionTest", "DBConnectionTest\DBConnectionTest.csproj", "{7BE67BCE-6214-4995-B6A8-67604C33F9D2}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DbTestwinApp", "DbTestwinApp\DbTestwinApp.vdproj", "{B1234AA5-E5D8-413F-9C0B-A82188AF8985}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BE67BCE-6214-4995-B6A8-67604C33F9D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE67BCE-6214-4995-B6A8-67604C33F9D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE67BCE-6214-4995-B6A8-67604C33F9D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE67BCE-6214-4995-B6A8-67604C33F9D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1234AA5-E5D8-413F-9C0B-A82188AF8985}.Debug|Any CPU.ActiveCfg = Debug
+		{B1234AA5-E5D8-413F-9C0B-A82188AF8985}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {975B31AA-FA25-4717-A0BE-DA062B037685}
+	EndGlobalSection
+EndGlobal
