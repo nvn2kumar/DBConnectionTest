@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,9 @@ namespace DBConnectionTest
 {
     public partial class Form1 : Form
     {
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
         public Form1()
         {
             InitializeComponent();
@@ -102,6 +106,28 @@ namespace DBConnectionTest
         {
             if (validatedata())
             {
+               // AllocConsole();
+                string author = "Mahesh Chand";
+                string book = "Graphics Programming with GDI+";
+                int year = 2003;
+                decimal price = 49.95m;
+                string publisher = "APress";
+
+                // Book details  
+                string bookDetails = String.Format("{0} is the author of book {1} \n "+
+                "published by {2} in year {3}. \n Book price is ${4}. ",
+                author, book, publisher, year, price);
+                Console.WriteLine(bookDetails);
+                //Console.WriteLine(bookDetails);
+                //listBox1.Items.Clear();
+               
+                for (int i = 0; i < 5000; i++)
+                {
+                    listBox1.Items.Add("test Case "+i);
+                }
+                listBox1.Items.Add(bookDetails);
+
+                //MessageBox.Show(bookDetails);
                 MessageBox.Show("Test completed");
             }
         }
@@ -126,7 +152,8 @@ namespace DBConnectionTest
                 {
 
                     conn.Open();
-                    MessageBox.Show("Sever Connection established");
+                    // MessageBox.Show("Server Connection established");
+                    listBox1.Items.Add("Server Connection established");
 
                     var cmd = new SqlCommand();
                     cmd.Connection = conn;
@@ -144,7 +171,8 @@ namespace DBConnectionTest
                         comboBox1.Items.Add(dtDatabases.Rows[i][0].ToString());
                         conn.Close();
                     }
-                    MessageBox.Show("Databases loaded.");
+                    //MessageBox.Show("Databases loaded.");
+                    listBox1.Items.Add("Databases loaded.");
                     //comboBox1.SelectedText = "test1";
                     comboBox1.SelectedIndex = 0;
                 }
@@ -204,6 +232,28 @@ namespace DBConnectionTest
         private void userNametextBox1_TextChanged(object sender, EventArgs e)
         {
             comboBox1.Items.Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Are you sure you want to Clear all fields.", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (res == DialogResult.OK)
+            {
+                comboBox1.Items.Clear();
+                severNameBox1.Clear();
+                outputTextBox2.Clear();
+                userNametextBox1.Clear();
+                maskedTextBox1.Clear();
+                listBox1.Items.Clear();
+                //MessageBox.Show("You have clicked Ok Button");
+                //Some task…
+            }
+            //if (res == DialogResult.Cancel)
+            //{
+            //    MessageBox.Show("You have clicked Cancel Button");
+               
+            //}
+           
         }
     }
 }
